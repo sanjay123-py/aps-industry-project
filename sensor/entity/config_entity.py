@@ -1,4 +1,5 @@
-import os, sys,datetime.datetime
+import os, sys
+from datetime import datetime
 from sensor.exception import SensorException
 from sensor.logger import logging
 FILE_NAME = "sensor.csv"
@@ -26,6 +27,11 @@ class DataIngestionConfig:
         except Exception as e:
             logging.debug(str(e))
             raise SensorException(e, sys)
+    def to_dict(self)->dict:
+        try:
+            return self.__dict__
+        except Exception as e:
+            raise SensorException(e, error_detail=sys)
 class DataValidationConfig:...
 class DataTransformationConfig:...
 class ModelTrainerConfig:...
