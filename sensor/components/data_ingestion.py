@@ -1,7 +1,10 @@
 from sensor import utils
 from sensor.entity import config_entity, artifact_entity
 from sensor.exception import SensorException
-
+import sys,os
+from sensor.logger import logging
+import numpy as np
+from sklearn.model_selection import train_test_split
 class DataIngestion:
     
     def __init__(self,data_ingestion_config:config_entity.DataIngestionConfig):
@@ -54,3 +57,4 @@ class DataIngestion:
             return data_ingestion_artifact
         except Exception as e:
             raise SensorException(e, sys)
+ 
