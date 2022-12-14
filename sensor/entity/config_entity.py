@@ -15,7 +15,7 @@ class TrainingPipelineConfig:
         self.artifact_dir=os.path.join(os.getcwd(),"artifact",f"{datetime.now().strftime('%m%d%Y__%H:%M:%S')}")
 
 class DataIngestionConfig:
-    def __init__(self,training_pipeline_config:TrainingPipelineConfig()):
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         try:
             self.database_name="aps"
             self.collection_name="sensor"
@@ -32,7 +32,13 @@ class DataIngestionConfig:
             return self.__dict__
         except Exception as e:
             raise SensorException(e, error_detail=sys)
-class DataValidationConfig:...
+
+class DataValidationConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        self.data_validation_dir=os.path.join(training_pipeline_config.artifact_dir,"data_validation")
+        self.report_file_path=os.path.join(seld.data_validation_dir,"report.yaml")
+        
+
 class DataTransformationConfig:...
 class ModelTrainerConfig:...
 class ModelEvaluationConfig:...
