@@ -36,9 +36,9 @@ class DataIngestionConfig:
 class DataValidationConfig:
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.data_validation_dir=os.path.join(training_pipeline_config.artifact_dir,"data_validation")
-        self.report_file_path=os.path.join(seld.data_validation_dir,"report.yaml")
-        self.threshold=0.7
-
+        self.report_file_path=os.path.join(self.data_validation_dir,"report.yaml")
+        self.threshold:float=0.7
+        self.base_file_path='aps_failure_training_set1.csv'
 class DataTransformationConfig:...
 class ModelTrainerConfig:...
 class ModelEvaluationConfig:...
