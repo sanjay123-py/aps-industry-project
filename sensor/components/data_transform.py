@@ -10,11 +10,11 @@ import os, sys
 import numpy as np
 from typing import Optional
 from imblearn.combine import SMOTETomek
-from sklearn.preprocessing import Pipeline
-from sklearn.impute import SimpleInputer
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import RobustScaler
 from sensor.config import TARGET_COLUMN
-
+from sklearn.preprocessing import LabelEncoder
 
 class DataTransformation:
     def __init__(self,data_transformation_config:config_entity.DataTransformationConfig, data_ingestion_artifact:artifact_entity.DataIngestionArtifact):
@@ -27,9 +27,9 @@ class DataTransformation:
     @classmethod
     def get_data_transformer_object(cls)->Pipeline:
         try:
-            simple_imputer = SimpleInputer(strategy="constant",fill_value = 0)
+            simple_imputer = SimpleImputer(strategy="constant",fill_value = 0)
             robust_scaler =  RobustScaler()
-            pipeline = Pipeline(step=[
+            pipeline = Pipeline(steps=[
                 ("imputer",simple_imputer),
                 ("Robust_Scaler",robust_scaler)
             ])
