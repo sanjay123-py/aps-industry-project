@@ -6,7 +6,6 @@ from sensor.utils import load_object,save_object
 from sensor.logger import logging
 from sensor.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact,ModelPusherArtifact
 class ModelPusher:
-
     def __init__(self,model_pusher_config:ModelPusherConfig,
     data_transformation_artifact:DataTransformationArtifact,
     model_trainer_artifact:ModelTrainerArtifact):
