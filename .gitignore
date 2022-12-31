@@ -6,6 +6,8 @@ artifact
 # C extensions
 *.so
 demotest.py
+prediction
+saved_models
 logs
 artifacts
 raw_data
