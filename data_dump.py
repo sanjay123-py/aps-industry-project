@@ -1,7 +1,9 @@
 import pymongo
 import pandas as pd
 import json
-client = pymongo.MongoClient("mongodb://localhost:27017/neurolabDB")
+import os
+mongo_db_url:str = os.getenv('MONGO_DB_URL')
+client = pymongo.MongoClient(mongo_db_url)
 
 #setting dataabase and collection name 
 DATA_FILE_PATH='/config/workspace/aps_failure_training_set1.csv'
