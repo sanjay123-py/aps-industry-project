@@ -8,7 +8,7 @@ artifact
 demotest.py
 data_dump.py
 prediction
-saved_models
+saved_models/
 logs
 artifacts
 raw_data
